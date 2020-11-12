@@ -66,7 +66,7 @@ const Form: React.FC = () => {
   return (
     <Grid container justify="center" alignItems="center" style={{ marginTop: 200 }} direction="column" spacing={5}>
       <Grid item xs={10} md={6}>
-        <Paper elevation={3} style={{ padding: 20, height: 300 }} className="paper">
+        <Paper elevation={3} style={{ padding: 20, height: 300}} className="paper">
           <Grid container justify="center" alignItems="center">
             <h2 className="title">Digite as letras disponíveis nesta jogada</h2>
             <Grid item xs={12}>

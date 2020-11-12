@@ -2,7 +2,7 @@
   position: relative;
 }
 .toolTip{
-  position: absolute;
+  position: absolute !important;
   bottom: 5%;
   right: 3%;
 }
