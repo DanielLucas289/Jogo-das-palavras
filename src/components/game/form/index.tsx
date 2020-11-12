@@ -66,15 +66,17 @@ const Form: React.FC = () => {
   return (
     <Grid container justify="center" alignItems="center" style={{ marginTop: 200 }} direction="column" spacing={5}>
       <Grid item xs={10} md={6}>
-        <Paper elevation={3} style={{ padding: 20, height: 300}} className="paper">
+        <Paper elevation={3} style={{ padding: 10, height: 300 }} className="paper">
           <Grid container justify="center" alignItems="center">
             <h2 className="title">Digite as letras disponíveis nesta jogada</h2>
             <Grid item xs={12}>
-              <Grid container justify="center" alignItems="center" direction="row">
-                <TextField id="outlined-basic" label="Digite a palavra" variant="outlined" value={letrasDigitadas} style={{ width: 300 }}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setletrasDigitadas(e.target.value)}
-                />
-                <Button variant="contained" color="secondary" style={{ height: 60 }} onClick={find}>Ok</Button>
+              <Grid container justify="center" alignItems="center">
+                <div className="input">
+                  <TextField id="outlined-basic" label="Digite a palavra" variant="outlined" value={letrasDigitadas} style={{ width: 300 }}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setletrasDigitadas(e.target.value)}
+                  />
+                  <Button variant="contained" color="secondary" style={{ height: 60 }} onClick={find}>Ok</Button>
+                </div>
               </Grid>
             </Grid>
           </Grid>
@@ -88,17 +90,17 @@ const Form: React.FC = () => {
       {
         showResult && (
           <Grid item xs={10} md={6}>
-              <Grid container justify="center" alignItems="center">
-                <Grid item xs={12}>
-                  <Grid container justify="center" alignItems="center" direction="column">
-                    <h4 className="findWord">Palavra de {pontos} pontos</h4>
-                    <h4 className="findedWord">{palavraEncontrada}</h4>
-                  </Grid>
-                  <Grid container justify="center" alignItems="center" direction="column">
-                    <h4 className="rest">{letrasRestantes ? `Sobraram: ${letrasRestantes}` : 'Não sobrou nenhuma letra'}</h4>
-                  </Grid>
+            <Grid container justify="center" alignItems="center">
+              <Grid item xs={12}>
+                <Grid container justify="center" alignItems="center" direction="column">
+                  <h4 className="findWord">Palavra de {pontos} pontos</h4>
+                  <h4 className="findedWord">{palavraEncontrada}</h4>
+                </Grid>
+                <Grid container justify="center" alignItems="center" direction="column">
+                  <h4 className="rest">{letrasRestantes ? `Sobraram: ${letrasRestantes}` : 'Não sobrou nenhuma letra'}</h4>
                 </Grid>
               </Grid>
+            </Grid>
           </Grid>
         )
       }

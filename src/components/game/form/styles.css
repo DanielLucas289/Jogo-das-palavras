@@ -1,6 +1,13 @@
 .paper{
   position: relative;
 }
+.input{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  flex-direction: row;
+}
 .toolTip{
   position: absolute !important;
   bottom: 5%;
@@ -60,6 +67,12 @@
 }
 
 @media screen and (width: 414px) {
+  .messageError{
+    font-size: 80%;
+  } 
+}
+
+@media screen and (max-width: 427px) {
   .messageError{
     font-size: 80%;
   } 
