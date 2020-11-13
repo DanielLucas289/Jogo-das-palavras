@@ -3,7 +3,10 @@ import Fab from '@material-ui/core/Fab';
 import React, { useEffect, useState } from 'react';
 import { findWord } from './functions/findWord';
 import { valorLetras } from '../../../data/wordsPoint';
+import logoutIcon from '../../../assets/icons/logout.png';
+
 import './styles.css'
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   fab: {
@@ -20,6 +23,7 @@ const Form: React.FC = () => {
   const [pontos, setPontos] = useState<number>(0)
   const [total, setTotal] = useState<number>(0)
   const [showResult, setShowResult] = useState<boolean>(false)
+  const history = useHistory();
 
   useEffect(() => {
     if (palavraEncontrada !== "") {
@@ -63,8 +67,21 @@ const Form: React.FC = () => {
     setMessageError("")
   }
 
+  const logout = () => {
+    setletrasDigitadas("");
+    setMessageError("");
+    setPalavraEncontrada("");
+    setLetrasRestantes("");
+    setPontos(0);
+    setTotal(0);
+    setShowResult(false);
+    setMessageError("");
+
+    history.push("/");
+  }
+
   return (
-    <Grid container justify="center" alignItems="center" style={{ marginTop: 200 }} direction="column" spacing={5}>
+    <Grid container justify="center" alignItems="center" style={{ marginTop: 150}} direction="column" spacing={5}>
       <Grid item xs={10} md={6}>
         <Paper elevation={3} style={{ padding: 10, height: 300 }} className="paper">
           <Grid container justify="center" alignItems="center">
@@ -105,6 +122,9 @@ const Form: React.FC = () => {
         )
       }
       {messageError && <h4 className="messageError">{messageError}</h4>}
+      <button onClick={logout} className="button-logout">
+        <img src={logoutIcon} alt="Logout"/>
+      </button>
     </Grid>
   );
 }

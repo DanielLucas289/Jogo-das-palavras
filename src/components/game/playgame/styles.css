@@ -42,7 +42,18 @@
   margin-bottom: 50px;
 }
 
+.button-logout{
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+  border: none;
+  background: none;
+}
 
+.button-logout img{
+  width: 40px;
+  height: 40px;
+}
 
 @media screen and (max-width: 1400px) {
   .messageError{
