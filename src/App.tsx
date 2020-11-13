@@ -1,11 +1,14 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import Header from './components/game/header'
-import Form from './components/game/form'
+import Routes from './routes';
 function App() {
   return (
     <>
       <Header />
-      <Form />
+      <BrowserRouter>
+        <Routes />
+      </BrowserRouter>
     </>
   );
 }
